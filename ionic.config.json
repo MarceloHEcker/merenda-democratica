@@ -1,5 +1,7 @@
 {
   "name": "merenda-democratica",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
