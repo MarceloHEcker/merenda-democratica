@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { IndiciosPageRoutingModule } from './indicios-routing.module';
+import { MerendaBotPageRoutingModule } from './merenda-bot-routing.module';
 
-import { IndiciosPage } from './indicios.page';
+import { MerendaBotPage } from './merenda-bot.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    IndiciosPageRoutingModule
+    MerendaBotPageRoutingModule
   ],
-  declarations: [IndiciosPage]
+  declarations: [MerendaBotPage]
 })
-export class IndiciosPageModule {}
+export class MerendaBotPageModule {}

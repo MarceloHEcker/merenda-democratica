@@ -8,15 +8,17 @@ const KEY = 'user-avatar';
 export class UsuariosServiceProvider {
     private _loggedUser: Usuario;
 
+    private _url: string = 'http://localhost:3333';
+
     constructor( private _http: HttpClient ) {
     }
 
     save( usuario: Usuario ) {
-        return this._http.post<Usuario>( 'http://192.168.0.59:8080/api/usuarios', usuario );
+        return this._http.post<Usuario>( `${ this._url }/usuarios`, usuario );
     }
 
-    doLogin( email, password ) {
-        return this._http.post<Usuario>( 'http://192.168.0.59:8080/api/login', { email, password } );
+    doLogin( email, senha ) {
+        return this._http.post<Usuario>( `${ this._url }/sessions`, { email, senha } );
     }
 
     getLoggedUser() {

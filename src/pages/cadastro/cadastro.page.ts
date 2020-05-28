@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { UsuariosServiceProvider } from 'src/providers/usuarios-service/usuarios-service';
 import { Usuario } from 'src/modelos/usuario';
 
 import { Vibration } from '@ionic-native/vibration';
 import { DatePicker } from '@ionic-native/date-picker';
-import { HomePage } from '../home/home.page';
 import { Router } from '@angular/router';
 
 
@@ -28,10 +27,14 @@ export class CadastroPage implements OnInit {
     private _alertCtrl: AlertController,
     private _usuariosService: UsuariosServiceProvider,
     private _vibration: typeof Vibration,
-    private _datePicker: typeof DatePicker
+    private _datePicker: typeof DatePicker,
+    public menuCtrl: MenuController,
   ) { }
 
   ngOnInit() {
+
+    this.menuCtrl.enable( false );
+
   }
 
   selectDate() {
@@ -64,7 +67,7 @@ export class CadastroPage implements OnInit {
       nome: this.nome,
       endereco: this.endereco,
       email: this.email,
-      dataNascimento: this.data,
+      data_nascimento: this.data,
       telefone: this.telefone
     };
 

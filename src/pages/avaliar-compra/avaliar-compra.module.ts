@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CompraPageRoutingModule } from './compra-routing.module';
+import { AvaliarCompraPageRoutingModule } from './avaliar-compra-routing.module';
 
-import { CompraPage } from './compra.page';
+import { AvaliarCompraPage } from './avaliar-compra.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CompraPageRoutingModule
+    AvaliarCompraPageRoutingModule
   ],
-  declarations: [CompraPage]
+  declarations: [AvaliarCompraPage]
 })
-export class CompraPageModule {}
+export class AvaliarCompraPageModule {}

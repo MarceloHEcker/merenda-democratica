@@ -1,25 +1,29 @@
 <ion-content scroll="false">
-  <div class="splash-bg"></div>
-  <div class="splash-info">
-    <div class="splash-logo"></div>
-    <div class="splash-intro">
-      Merenda democrática
-    </div>
-  </div>
-  <div padding>
-    <form (ngSubmit)="efetuaLogin()">
-      <ion-item>
-          <ion-label stacked>Email</ion-label>
-          <ion-input [(ngModel)]="email" name="email" type="text"></ion-input>
-      </ion-item>
+  <ion-card class="login-card">
+    <ion-card-header>
+      <ion-card-subtitle>TCC - Sistemas de Informação</ion-card-subtitle>
+      <ion-card-title>Merenda Democrática</ion-card-title>
+    </ion-card-header>
 
-      <ion-item>
-          <ion-label stacked>Senha</ion-label>
-          <ion-input [(ngModel)]="password" name="password" type="password"></ion-input>
-      </ion-item>
+    <ion-card-content>
+      <form (ngSubmit)="efetuaLogin()">
 
-      <button ion-button block type="submit" class="login">ENTRAR</button>
-    </form>
-  </div>
+        <ion-item>
+          <ion-label position="stacked">Email<ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input required [(ngModel)]="email" name="email" type="text"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label position="stacked">Senha<ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input required [(ngModel)]="senha" name="senha" type="password"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" type="submit" class="login-button">ENTRAR</ion-button>
+
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
-
