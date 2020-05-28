@@ -21,6 +21,7 @@ export class MerendaBotPage implements OnInit, AfterViewInit {
       js.id = id;
       js.src = p + "://platform.twitter.com/widgets.js";
       fjs.parentNode.insertBefore( js, fjs );
+      return false;
     }
       ( document, "script", "twitter-wjs" );
   }

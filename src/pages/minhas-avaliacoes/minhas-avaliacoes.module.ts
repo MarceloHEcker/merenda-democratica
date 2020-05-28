@@ -7,14 +7,18 @@ import { IonicModule } from '@ionic/angular';
 import { MinhasAvaliacoesPageRoutingModule } from './minhas-avaliacoes-routing.module';
 
 import { MinhasAvaliacoesPage } from './minhas-avaliacoes.page';
+import { AvaliacoesServiceProvider } from 'src/providers/avaliacoes-service/avaliacoes-service';
 
-@NgModule({
+@NgModule( {
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     MinhasAvaliacoesPageRoutingModule
   ],
-  declarations: [MinhasAvaliacoesPage]
-})
-export class MinhasAvaliacoesPageModule {}
+  providers: [
+    AvaliacoesServiceProvider
+  ],
+  declarations: [ MinhasAvaliacoesPage ]
+} )
+export class MinhasAvaliacoesPageModule { }

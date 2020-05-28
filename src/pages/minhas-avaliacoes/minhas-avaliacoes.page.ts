@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { Avaliacao } from 'src/modelos/avaliacao';
+import { AvaliacoesServiceProvider } from 'src/providers/avaliacoes-service/avaliacoes-service';
 
-@Component({
+@Component( {
   selector: 'app-minhas-avaliacoes',
   templateUrl: './minhas-avaliacoes.page.html',
-  styleUrls: ['./minhas-avaliacoes.page.scss'],
-})
+  styleUrls: [ './minhas-avaliacoes.page.scss' ],
+} )
 export class MinhasAvaliacoesPage implements OnInit {
 
-  constructor() { }
+  avaliacoes: Avaliacao[];
+
+  constructor(
+    private avaliacoesSvc: AvaliacoesServiceProvider,
+  ) { }
 
   ngOnInit() {
+
+    this.avaliacoesSvc.getByUser( 1 ).subscribe( res => {
+      this.avaliacoes = res;
+    } );
+
   }
 
 }
