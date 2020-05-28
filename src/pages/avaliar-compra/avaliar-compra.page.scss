@@ -1,0 +1,66 @@
+.ios body.dark component-card {
+	--ion-item-background: #1c1c1e;
+  }
+  
+  component-card {
+	--background-darker: var(--ion-color-step-200, #e9edf3);
+  
+	--text-dark: var(--ion-color-step-850, #27323f);
+	--text-darker: var(--ion-color-step-950, #0e151f);
+  
+	--text-light: var(--ion-color-step-650, #5b708b);
+	--text-lighter: var(--ion-color-step-550, #73849a);
+	--text-lightest: var(--ion-color-step-300, #b2becd);
+  }
+  
+  component-card ion-card .header-img {
+	width: 100%;
+	height: 120px;
+  }
+  
+  component-card ion-card ion-card-subtitle {
+	color: var(--text-lighter);
+  }
+  
+  component-card ion-card ion-card-title {
+	color: var(--text-darker);
+  }
+  
+  component-card ion-card ion-card-content {
+	color: var(--text-light);
+  }
+  
+  component-card ion-card ion-list ion-item {
+	--padding-start: 0;
+  }
+  
+  /* Coworker Card */
+
+  component-card .compra-card .header-img {
+	height: 160px;
+  }
+  
+  component-card .compra-card h1 {
+	font-weight: 600;
+	font-size: 18px;
+  }
+  
+  component-card .compra-card p {
+	color: var(--text-light);
+  }
+  
+  component-card .compra-card ion-icon {
+	align-self: start;
+	margin-top: 10px;
+	margin-right: 29px;
+  
+	color: var(--text-lightest);
+  }
+
+  .buttons-container {
+	  margin-top: 10px;
+
+	  ion-button {
+		  margin-right: 10px;
+	  }
+  }

@@ -7,14 +7,18 @@ import { IonicModule } from '@ionic/angular';
 import { AvaliarCompraPageRoutingModule } from './avaliar-compra-routing.module';
 
 import { AvaliarCompraPage } from './avaliar-compra.page';
+import { ComprasServiceProvider } from 'src/providers/compras-service/compras-service';
 
-@NgModule({
+@NgModule( {
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     AvaliarCompraPageRoutingModule
   ],
-  declarations: [AvaliarCompraPage]
-})
-export class AvaliarCompraPageModule {}
+  declarations: [ AvaliarCompraPage ],
+  providers: [
+    ComprasServiceProvider
+  ]
+} )
+export class AvaliarCompraPageModule { }

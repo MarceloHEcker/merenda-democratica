@@ -19,6 +19,10 @@ export class ComprasServiceProvider {
 		return this._http.get<Compra>( `${ this._url }/compras/${ compraId }` );
 	}
 
+	getRandom() {
+		return this._http.get<Compra>( `${ this._url }/compras/random` );
+	}
+
 	index() {
 		return this._http.get<Compra[]>( `${ this._url }/compras` );
 	}
