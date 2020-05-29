@@ -9,4 +9,55 @@
 
 <ion-content>
 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Atualizar Perfil</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div *ngIf="usuario">
+        <ion-item>
+          <ion-label position="stacked">Nome<ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input required [(ngModel)]="usuario.nome" name="nome" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Login<ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input required [(ngModel)]="usuario.login" name="nome" type="text"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label position="stacked">Endereço<ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input [(ngModel)]="usuario.endereco" name="endereco" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Data de Nascimento<ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input [(ngModel)]="usuario.data_nascimento" name="data_nascimento" type="date"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Email<ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input [(ngModel)]="usuario.email" name="email" type="email"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label position="stacked">Telefone<ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input [(ngModel)]="usuario.telefone" name="telefone" type="number"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" (click)="updateProfile()">Atualizar Perfil</ion-button>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

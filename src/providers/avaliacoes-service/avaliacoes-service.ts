@@ -31,4 +31,8 @@ export class AvaliacoesServiceProvider {
         return this._http.get<Avaliacao[]>( `${ this._url }/avaliacoes` );
     }
 
+    getIndiciosFraude() {
+        return this._http.get<Avaliacao[]>( `${ this._url }/avaliacoes/indicio-fraude` );
+    }
+
 }

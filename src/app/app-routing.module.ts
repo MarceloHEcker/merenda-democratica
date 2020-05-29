@@ -12,7 +12,6 @@ const routes: Routes = [
   { path: 'merenda-bot', loadChildren: '../pages/merenda-bot/merenda-bot.module#MerendaBotPageModule' },
   { path: 'cadastro', loadChildren: '../pages/cadastro/cadastro.module#CadastroPageModule' },
   { path: 'indicios-fraude', loadChildren: '../pages/indicios-fraude/indicios-fraude.module#IndiciosFraudePageModule' },
-
 ];
 
 @NgModule( {

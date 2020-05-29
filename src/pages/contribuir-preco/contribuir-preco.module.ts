@@ -7,14 +7,20 @@ import { IonicModule } from '@ionic/angular';
 import { ContribuirPrecoPageRoutingModule } from './contribuir-preco-routing.module';
 
 import { ContribuirPrecoPage } from './contribuir-preco.page';
+import { LocalityServiceProvider } from 'src/providers/locality-service/locality-service';
+import { PrecosServiceProvider } from 'src/providers/precos-service/precos-service';
 
-@NgModule({
+@NgModule( {
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     ContribuirPrecoPageRoutingModule
   ],
-  declarations: [ContribuirPrecoPage]
-})
-export class ContribuirPrecoPageModule {}
+  declarations: [ ContribuirPrecoPage ],
+  providers: [
+    LocalityServiceProvider,
+    PrecosServiceProvider,
+  ]
+} )
+export class ContribuirPrecoPageModule { }

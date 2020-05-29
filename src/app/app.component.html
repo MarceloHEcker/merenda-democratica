@@ -11,6 +11,13 @@
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
+
+          </ion-menu-toggle>
+          <ion-menu-toggle *ngIf="isLoggedIn">
+            <ion-item (click)="logout()" lines="none" detail="false">
+              <ion-icon slot="start" ios="exit-outline" md="exit-sharp"></ion-icon>
+              <ion-label>Sair</ion-label>
+            </ion-item>
           </ion-menu-toggle>
         </ion-list>
 

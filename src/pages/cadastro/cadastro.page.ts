@@ -85,7 +85,7 @@ export class CadastroPage implements OnInit {
             {
               text: 'ok',
               handler: () => {
-                this.router.navigate( [ 'home' ] );
+                this.router.navigateByUrl( '/login' );
               }
             }
           ],

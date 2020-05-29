@@ -8,5 +8,53 @@
 </ion-header>
 
 <ion-content>
-  Contribuir Preço
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Diga quanto custa em sua cidade</ion-card-subtitle>
+      <ion-card-title>Contribuir para o MerendaBot</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label>Estado<ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-select okText="Selecionar" [(ngModel)]="estado" cancelText="Cancelar" (ionChange)="selectCity($event)" required>
+          <ion-select-option *ngFor="let estado of estados" [value]="estado.sigla">{{estado.nome}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>Cidade<ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-select okText="Selecionar" [(ngModel)]="cidade" cancelText="Cancelar" required>
+          <ion-select-option *ngFor="let cidade of cidades" [value]="cidade.nome">{{cidade.nome}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Produto<ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required [(ngModel)]="produto" name="produto" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Unidade</ion-label>
+        <ion-select [(ngModel)]="unidade_medida" okText="Selecionar" cancelText="Cancelar">
+          <ion-select-option *ngFor="let unidade of unidades">{{unidade}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Valor Unitário<ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required [(ngModel)]="valor_unitario" name="valor_unitario" type="number"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" (click)="postPrice()">Enviar Preço</ion-button>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

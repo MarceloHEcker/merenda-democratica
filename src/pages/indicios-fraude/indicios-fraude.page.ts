@@ -17,7 +17,7 @@ export class IndiciosFraudePage implements OnInit {
 
   ngOnInit() {
 
-    this.avaliacoesSvc.getByUser( 1 ).subscribe( res => {
+    this.avaliacoesSvc.getIndiciosFraude().subscribe( res => {
       this.avaliacoes = res;
     } );
 
