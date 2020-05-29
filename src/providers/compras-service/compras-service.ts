@@ -23,6 +23,10 @@ export class ComprasServiceProvider {
 		return this._http.get<Compra>( `${ this._url }/compras/random` );
 	}
 
+	getMunicipiosProximos(orderId) {
+		return this._http.get<any[]>(`${ this._url }/compras/${orderId}/municipios-proximos` );
+	}
+
 	index() {
 		return this._http.get<Compra[]>( `${ this._url }/compras` );
 	}
