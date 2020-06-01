@@ -23,7 +23,7 @@
       <ion-label text-wrap>
         <h2>{{ avaliacao.compra.produto}}</h2>
         <h3>{{ avaliacao.compra.municipio }} - {{ avaliacao.compra.uf }}</h3>
-        <p>Compra realizada em {{ avaliacao.compra.ano }}, de {{ avaliacao.compra.quantidade}} {{ avaliacao.compra.unidade_medida }} por {{ avaliacao.compra.valor_unitario | currency }} cada um</p>
+        <p>Compra realizada em {{ avaliacao.compra.ano }}, de {{ avaliacao.compra.quantidade}} {{ avaliacao.compra.unidade_medida }} por {{ avaliacao.compra.valor_unitario | currency:'BRL':true}} cada um</p>
       </ion-label>
     </ion-item>
 

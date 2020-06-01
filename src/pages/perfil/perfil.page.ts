@@ -34,7 +34,9 @@ export class PerfilPage implements OnInit {
             message: 'Usuário atualizado com sucesso!',
             position: 'top',
             color: 'success',
+            duration: 3000,
           } );
+
           toast.present();
 
           const storagedUser = await this.usuarioSvc.getLoggedUserCached();

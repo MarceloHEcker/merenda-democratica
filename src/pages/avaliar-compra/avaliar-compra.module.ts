@@ -9,6 +9,7 @@ import { AvaliarCompraPageRoutingModule } from './avaliar-compra-routing.module'
 import { AvaliarCompraPage } from './avaliar-compra.page';
 import { ComprasServiceProvider } from 'src/providers/compras-service/compras-service';
 import { ComentariosServiceProvider } from 'src/providers/comentarios-service/comentarios-service';
+import { PrevisoesServiceProvider } from 'src/providers/previsoes-service/previsoes-service';
 
 @NgModule( {
   imports: [
@@ -21,6 +22,7 @@ import { ComentariosServiceProvider } from 'src/providers/comentarios-service/co
   providers: [
     ComprasServiceProvider,
     ComentariosServiceProvider,
+    PrevisoesServiceProvider,
   ]
 } )
 export class AvaliarCompraPageModule { }

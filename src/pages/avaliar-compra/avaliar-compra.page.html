@@ -62,6 +62,21 @@
     </ion-card-content>
   </ion-card>
 
+  <ion-card *ngIf="estimativaPreco">
+    <ion-card-header>
+      <ion-card-subtitle>Gerada pelo aplicativo</ion-card-subtitle>
+      <ion-card-title>Estimativa de Preço</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list text-wrap>
+
+        <p>De acordo com todas as compras presentes no Merenda Democrática, a estimativa de preço para esse produto é de:</p>
+        <h2 style="margin-top: 10px;font-weight: bold;">{{ estimativaPreco.valor_unitario | currency:'BRL':true }}</h2>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
   <ion-card>
     <ion-card-header>
       <ion-card-subtitle>Compras - Valor Unitário</ion-card-subtitle>
@@ -73,7 +88,7 @@
 
         <ion-item *ngFor="let compra of comprasMunicipios" text-wrap>
           <ion-label>
-            <h2>{{compra.valor_unitario}}</h2>
+            <h2>{{compra.valor_unitario | currency:'BRL':true }}</h2>
             <h3 style="font-weight: bold;">{{compra.municipio}}</h3>
             <p>{{compra.produto}}</p>
           </ion-label>
@@ -103,14 +118,14 @@
           <ion-label>
             <p>{{ comentario.comentario }}</p>
           </ion-label>
-          
+
         </ion-item>
 
         <ion-item *ngIf="!comentarios.length" text-wrap>
           <p>Nenhum comentário encontrado para essa compra</p>
         </ion-item>
 
-       
+
 
       </ion-list>
     </ion-card-content>
