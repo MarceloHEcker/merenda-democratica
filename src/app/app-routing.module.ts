@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'todas-avaliacoes', loadChildren: '../pages/todas-avaliacoes/todas-avaliacoes.module#TodasAvaliacoesPageModule' },
   { path: 'contribuir-preco', loadChildren: '../pages/contribuir-preco/contribuir-preco.module#ContribuirPrecoPageModule' },
   { path: 'avaliar-compra', loadChildren: '../pages/avaliar-compra/avaliar-compra.module#AvaliarCompraPageModule' },
+  { path: 'comentar-compra', loadChildren: '../pages/comentar-compra/comentar-compra.module#ComentarCompraPageModule' },
   { path: 'merenda-bot', loadChildren: '../pages/merenda-bot/merenda-bot.module#MerendaBotPageModule' },
   { path: 'cadastro', loadChildren: '../pages/cadastro/cadastro.module#CadastroPageModule' },
   { path: 'indicios-fraude', loadChildren: '../pages/indicios-fraude/indicios-fraude.module#IndiciosFraudePageModule' },

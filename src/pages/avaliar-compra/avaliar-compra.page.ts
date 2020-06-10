@@ -5,6 +5,8 @@ import { ComentariosServiceProvider } from 'src/providers/comentarios-service/co
 import { Comentario } from 'src/modelos/comentario';
 import { PrevisoesServiceProvider } from 'src/providers/previsoes-service/previsoes-service';
 import { Previsao } from 'src/modelos/previsao';
+import { ToastController } from '@ionic/angular';
+import { AvaliacoesServiceProvider } from 'src/providers/avaliacoes-service/avaliacoes-service';
 
 @Component( {
   selector: 'app-avaliar-compra',
@@ -21,11 +23,18 @@ export class AvaliarCompraPage implements OnInit {
   constructor(
     private compraSvc: ComprasServiceProvider,
     private comentarioSvc: ComentariosServiceProvider,
+    private avalicaoSvc: AvaliacoesServiceProvider,
     private previsaoSvc: PrevisoesServiceProvider,
+    private toastController: ToastController,
   ) { }
 
   ngOnInit() {
 
+    this.run();
+
+  }
+
+  run() {
     this.compraSvc.getRandom().subscribe( res => {
       this.compra = res;
 
@@ -49,8 +58,6 @@ export class AvaliarCompraPage implements OnInit {
       } );
 
     } );
-
-
   }
 
   getDistance( p1, p2 ) {
@@ -71,6 +78,79 @@ export class AvaliarCompraPage implements OnInit {
     }
     return points[ minIndex ];
   }
+
+  async avaliarCompra( avalicaoStatus ) {
+
+    let toast;
+    let payload = {};
+
+    switch ( avalicaoStatus ) {
+      case 'APROVAR':
+
+        payload = {
+          compra_id: this.compra.id,
+          usuario_id:
+            status: true
+        }
+
+        this.avalicaoSvc.post( payload ).subscribe( async ( res ) => {
+
+          toast = await this.toastController.create( {
+            color: 'success',
+            duration: 2000,
+            message: 'Compra aprovada com sucesso...',
+          } );
+
+          await toast.present();
+
+          this.run();
+
+
+        } );
+
+        break;
+
+      case 'REJEITAR':
+
+        payload = {
+          compra_id: this.compra.id,
+          status: false
+        }
+
+        this.avalicaoSvc.post( payload ).subscribe( async ( res ) => {
+
+          toast = await this.toastController.create( {
+            color: 'success',
+            duration: 2000,
+            message: 'Compra rejeitada com sucesso...',
+          } );
+
+          await toast.present();
+
+          this.run();
+
+
+        } );
+
+
+        break;
+      default:
+
+
+        toast = await this.toastController.create( {
+          color: 'dark',
+          duration: 2000,
+          message: 'Carregando nova compra...',
+        } );
+
+        await toast.present();
+
+        this.run();
+        break;
+    }
+
+  }
+
 
 
 }

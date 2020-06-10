@@ -10,7 +10,7 @@
 <ion-content>
   <ion-list>
 
-    <ion-item *ngFor="let avaliacao of avaliacoes" text-wrap>
+    <ion-item [routerLink]="'/comentar-compra/' + avaliacao.id" *ngFor=" let avaliacao of avaliacoes" text-wrap>
       <ion-avatar slot="start">
         <ng-container *ngIf="avaliacao.status; else elseTemplate">
           <img src="../../assets/img/yes.png" alt="Avaliacao Positiva" />

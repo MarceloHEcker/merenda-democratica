@@ -12,15 +12,15 @@ export class ComentariosServiceProvider {
 	}
 
 	post( comentario: Comentario ) {
-		return this._http.post( `${ this._url }/comentario`, comentario );
+		return this._http.post( `${ this._url }/comentarios`, comentario );
 	}
 
 	get( comentarioId: number ) {
 		return this._http.get<Comentario>( `${ this._url }/comentarios/${ comentarioId }` );
 	}
 
-	getByOrder(compraId: number) {
-		return this._http.get<Comentario[]>( `${ this._url }/comentarios/${compraId}/compra` );
+	getByOrder( compraId: number ) {
+		return this._http.get<Comentario[]>( `${ this._url }/comentarios/${ compraId }/compra` );
 	}
 
 	index() {
