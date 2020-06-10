@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Compra } from './../../modelos/compra';
-
 import { HttpClient } from '@angular/common/http';
+
+import { Compra } from './../../modelos/compra';
 
 @Injectable()
 export class ComprasServiceProvider {
@@ -11,8 +11,8 @@ export class ComprasServiceProvider {
 	constructor( private _http: HttpClient ) {
 	}
 
-	post( compra: Compra ) {
-		return this._http.post( `${ this._url }/compras`, compra );
+	index() {
+		return this._http.get<Compra[]>( `${ this._url }/compras` );
 	}
 
 	get( compraId: number ) {
@@ -24,11 +24,8 @@ export class ComprasServiceProvider {
 	}
 
 	getMunicipiosProximos(orderId) {
-		return this._http.get<any[]>(`${ this._url }/compras/${orderId}/municipios-proximos` );
-	}
-
-	index() {
-		return this._http.get<Compra[]>( `${ this._url }/compras` );
+		return this._http.get<any[]>
+			(`${ this._url }/compras/${orderId}/municipios-proximos` );
 	}
 
 }
