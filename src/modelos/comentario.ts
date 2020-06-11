@@ -1,7 +1,8 @@
 import { Avaliacao } from './avaliacao';
 
 export interface Comentario {
-    id: number;
+    id?: number;
     comentario: string;
-    avaliacao: Avaliacao;
+    avaliacao?: Avaliacao;
+    avaliacao_id?: number;
 }
