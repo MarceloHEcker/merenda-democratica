@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { Camera } from '@ionic-native/camera/ngx';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -30,6 +31,7 @@ registerLocaleData( localePt );
   ],
   providers: [
     StatusBar,
+    Camera,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: LOCALE_ID, useValue: 'pt-BR' },

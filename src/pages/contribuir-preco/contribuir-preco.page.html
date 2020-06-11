@@ -53,6 +53,11 @@
         <ion-input required [(ngModel)]="valor_unitario" name="valor_unitario" type="number"></ion-input>
       </ion-item>
 
+      <ion-button (click)="tirarFoto()">Enviar Foto</ion-button>
+      <div *ngIf="fotoProduto">
+        <ion-img [src]="fotoProduto"></ion-img>
+      </div>
+
       <ion-button expand="block" (click)="postPrice()">Enviar Preço</ion-button>
     </ion-card-content>
   </ion-card>

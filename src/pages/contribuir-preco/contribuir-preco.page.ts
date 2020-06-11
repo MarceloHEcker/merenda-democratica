@@ -1,3 +1,4 @@
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
@@ -7,6 +8,7 @@ import { LocalityServiceProvider } from 'src/providers/locality-service/locality
 import { PrecosServiceProvider } from 'src/providers/precos-service/precos-service';
 import { Preco } from 'src/modelos/preco';
 import { ToastController, AlertController } from '@ionic/angular';
+import { CameraService } from 'src/providers/camera-service/camera-service';
 
 @Component( {
   selector: 'app-contribuir-preco',
@@ -38,12 +40,14 @@ export class ContribuirPrecoPage implements OnInit {
   unidade_medida: string;
   produto: string;
   valor_unitario: number;
+  fotoProduto: string;
 
   constructor(
     private localitySvc: LocalityServiceProvider,
     private precoSvc: PrecosServiceProvider,
     public toastController: ToastController,
     public alertController: AlertController,
+    private cameraSvc: CameraService,
   ) { }
 
   ngOnInit() {
@@ -108,6 +112,17 @@ export class ContribuirPrecoPage implements OnInit {
 
         }
       );
+
+  }
+
+
+  async tirarFoto() {
+
+    const photo = await this.cameraSvc.takePicture();
+
+    if(photo.photo) {
+      this.fotoProduto = photo.photo;
+    }
 
   }
 

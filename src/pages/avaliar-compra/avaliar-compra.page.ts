@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, MissingTranslationStrategy } from '@angular/core';
 
 import { Compra } from 'src/modelos/compra';
 import { ComprasServiceProvider } from 'src/providers/compras-service/compras-service';
@@ -8,6 +8,8 @@ import { PrevisoesServiceProvider } from 'src/providers/previsoes-service/previs
 import { Previsao } from 'src/modelos/previsao';
 import { ToastController } from '@ionic/angular';
 import { AvaliacoesServiceProvider } from 'src/providers/avaliacoes-service/avaliacoes-service';
+import { UsuariosServiceProvider } from 'src/providers/usuarios-service/usuarios-service';
+import { Usuario } from 'src/modelos/usuario';
 
 @Component( {
   selector: 'app-avaliar-compra',
@@ -20,8 +22,11 @@ export class AvaliarCompraPage implements OnInit {
   comprasMunicipios: Compra[] = [];
   comentarios: Comentario[] = [];
   estimativaPreco: Previsao[];
+  usuario: Usuario;
 
   constructor(
+    private storage: Storage,
+    private usuarioSvc: UsuariosServiceProvider,
     private compraSvc: ComprasServiceProvider,
     private comentarioSvc: ComentariosServiceProvider,
     private avalicaoSvc: AvaliacoesServiceProvider,
@@ -29,7 +34,9 @@ export class AvaliarCompraPage implements OnInit {
     private toastController: ToastController,
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+
+    this.usuario = await this.usuarioSvc.getCurrentUser();
 
     this.run();
 
@@ -83,42 +90,44 @@ export class AvaliarCompraPage implements OnInit {
   async avaliarCompra( avalicaoStatus ) {
 
     let toast;
-    let payload = {};
 
     switch ( avalicaoStatus ) {
       case 'APROVAR':
 
-        payload = {
+        let aprovePayload = {
           compra_id: this.compra.id,
-          usuario_id:
-            status: true
+          usuario_id: this.usuario.id,
+          status: true
         }
 
-        this.avalicaoSvc.post( payload ).subscribe( async ( res ) => {
+        this.avalicaoSvc.post( aprovePayload ).subscribe( async ( res ) => {
 
           toast = await this.toastController.create( {
             color: 'success',
             duration: 2000,
-            message: 'Compra aprovada com sucesso...',
+            message: 'Compra aprovada com sucesso.',
           } );
 
           await toast.present();
 
           this.run();
+          this.mensagemNovaCompra();
 
-
+        }, async (error) => {
+          this.mensagemErroAvaliacao("Erro ao aprovar compra. Tente novamente");
         } );
 
         break;
 
       case 'REJEITAR':
 
-        payload = {
+        let rejectPayload = {
           compra_id: this.compra.id,
+          usuario_id: this.usuario.id,
           status: false
         }
 
-        this.avalicaoSvc.post( payload ).subscribe( async ( res ) => {
+        this.avalicaoSvc.post( rejectPayload ).subscribe( async ( res ) => {
 
           toast = await this.toastController.create( {
             color: 'success',
@@ -129,27 +138,41 @@ export class AvaliarCompraPage implements OnInit {
           await toast.present();
 
           this.run();
+          this.mensagemNovaCompra();
 
-
+        }, async (error) => {
+          this.mensagemErroAvaliacao("Erro ao rejeitar compra. Tente novamente");
         } );
 
 
         break;
       default:
-
-
-        toast = await this.toastController.create( {
-          color: 'dark',
-          duration: 2000,
-          message: 'Carregando nova compra...',
-        } );
-
-        await toast.present();
-
         this.run();
+        this.mensagemNovaCompra();
         break;
     }
 
+  }
+
+  async mensagemNovaCompra() {
+
+    const toast = await this.toastController.create( {
+      color: 'dark',
+      duration: 2000,
+      message: 'Carregando nova compra...',
+    } );
+
+    await toast.present();
+  }
+
+  async mensagemErroAvaliacao(message) {
+    const toast = await this.toastController.create( {
+      color: 'danger',
+      duration: 2000,
+      message: message,
+    } );
+
+    await toast.present();
   }
 
 
