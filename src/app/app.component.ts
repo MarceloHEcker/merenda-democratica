@@ -15,19 +15,24 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
     {
-      title: 'Minhas Avaliações',
-      url: '/minhas-avaliacoes',
-      icon: 'person-add'
-    },
-    {
       title: 'Avaliar Compra',
       url: '/avaliar-compra',
       icon: 'eye'
     },
     {
+      title: 'Minhas Avaliações',
+      url: '/minhas-avaliacoes',
+      icon: 'person-add'
+    },
+    {
       title: 'Todas Avaliações',
       url: '/todas-avaliacoes',
       icon: 'people'
+    },
+    {
+      title: 'Indícios de Fraude',
+      url: '/indicios-fraude',
+      icon: 'warning'
     },
     {
       title: 'Contribuir com Preço',
@@ -38,11 +43,6 @@ export class AppComponent implements OnInit {
       title: 'Merenda BOT',
       url: '/merenda-bot',
       icon: 'laptop'
-    },
-    {
-      title: 'Indícios de Fraude',
-      url: '/indicios-fraude',
-      icon: 'warning'
     },
     {
       title: 'Perfil',
