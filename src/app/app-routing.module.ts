@@ -5,6 +5,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadChildren: '../pages/login/login.module#LoginPageModule' },
   { path: 'perfil', loadChildren: '../pages/perfil/perfil.module#PerfilPageModule' },
+  { path: 'registro', loadChildren: '../pages/registro/registro.module#RegistroPageModule'},
   { path: 'minhas-avaliacoes', loadChildren: '../pages/minhas-avaliacoes/minhas-avaliacoes.module#MinhasAvaliacoesPageModule' },
   { path: 'todas-avaliacoes', loadChildren: '../pages/todas-avaliacoes/todas-avaliacoes.module#TodasAvaliacoesPageModule' },
   { path: 'contribuir-preco', loadChildren: '../pages/contribuir-preco/contribuir-preco.module#ContribuirPrecoPageModule' },

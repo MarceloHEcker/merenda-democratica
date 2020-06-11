@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, MenuController, NavController, ToastController } from '@ionic/angular';
 import { UsuariosServiceProvider } from 'src/providers/usuarios-service/usuarios-service';
 import { Router } from '@angular/router';
-import { Storage } from '@ionic/storage';
-
 
 @Component({
   selector: 'app-registro',
@@ -13,7 +11,12 @@ import { Storage } from '@ionic/storage';
 })
 export class RegistroPage implements OnInit {
 
-  usuario: Usuario;
+  usuario: Usuario = {
+    nome: "", 
+    login: "", 
+    email: "", 
+    telefone: null
+  };
 
   private isLoggedIn: boolean;
 
@@ -55,6 +58,16 @@ export class RegistroPage implements OnInit {
       .subscribe(
         async ( result ) => {
           if ( result ) {
+
+            const toast = await this.toastCtrl.create( {
+              color: 'success',
+              position: 'top',
+              duration: 2000,
+              message: 'Usuário criado com sucesso.',
+            } );
+  
+            await toast.present();
+
             this.router.navigateByUrl( '/login' )
           }
         },

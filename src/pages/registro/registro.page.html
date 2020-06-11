@@ -15,6 +15,12 @@
         </ion-item>
 
         <ion-item>
+          <ion-label position="stacked">Login<ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input required [(ngModel)]="usuario.login" name="login" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
           <ion-label position="stacked">Email<ion-text color="danger">*</ion-text>
           </ion-label>
           <ion-input required [(ngModel)]="usuario.email" name="email" type="text"></ion-input>
@@ -32,7 +38,7 @@
           <ion-input [(ngModel)]="usuario.telefone" name="telefone" type="number"></ion-input>
         </ion-item>
 
-        <ion-button expand="block" type="submit" class="registro-button">ENTRAR</ion-button>
+        <ion-button expand="block" type="submit" class="registro-button">CRIAR CONTA</ion-button>
 
       </form>
     </ion-card-content>

@@ -7,7 +7,7 @@ import { Cidade } from 'src/modelos/cidade';
 import { LocalityServiceProvider } from 'src/providers/locality-service/locality-service';
 import { PrecosServiceProvider } from 'src/providers/precos-service/precos-service';
 import { Preco } from 'src/modelos/preco';
-import { ToastController, AlertController } from '@ionic/angular';
+import { ToastController, AlertController, Platform } from '@ionic/angular';
 import { CameraService } from 'src/providers/camera-service/camera-service';
 
 @Component( {
@@ -17,9 +17,7 @@ import { CameraService } from 'src/providers/camera-service/camera-service';
 } )
 export class ContribuirPrecoPage implements OnInit {
 
-
   @ViewChild( 'precoForm', { static: false } ) precoForm: NgForm;
-
 
   estados: EstadoBr[];
   cidades: Cidade[];
@@ -48,6 +46,7 @@ export class ContribuirPrecoPage implements OnInit {
     public toastController: ToastController,
     public alertController: AlertController,
     private cameraSvc: CameraService,
+    private platform: Platform,
   ) { }
 
   ngOnInit() {
@@ -91,6 +90,7 @@ export class ContribuirPrecoPage implements OnInit {
           const toast = await this.toastController.create( {
             message: 'Sucesso! Obrigado por enviar o preço do produto na sua cidade',
             position: 'top',
+            duration: 3000,
             color: 'success',
           } );
           toast.present();
@@ -118,11 +118,23 @@ export class ContribuirPrecoPage implements OnInit {
 
   async tirarFoto() {
 
-    const photo = await this.cameraSvc.takePicture();
+    if (this.platform.is('cordova')) {
+      const photo = await this.cameraSvc.takePicture();
 
-    if(photo.photo) {
-      this.fotoProduto = photo.photo;
+      if(photo.photo) {
+        this.fotoProduto = photo.photo;
+      }
+    } else {
+      const toast = await this.toastController.create( {
+        message: 'Utilizando navegador. Recurso não disponível',
+        position: 'top',
+        duration: 3000,
+        color: 'dark',
+      } );
+      toast.present();
     }
+
+   
 
   }
 
