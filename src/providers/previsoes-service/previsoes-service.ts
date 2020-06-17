@@ -16,7 +16,7 @@ export class PrevisoesServiceProvider {
 	}
 
 	indexCompra( payload ) {
-		return this._http.post<Previsao[]>( `${ this._url }/previsoes/compra`, payload );
+		return this._http.get<Previsao[]>( `${ this._url }/previsoes/compra`, payload );
 	}
 
 }
