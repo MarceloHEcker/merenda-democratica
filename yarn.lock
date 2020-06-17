@@ -960,9 +960,16 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@ionic-native/core@^5.0.7":
+"@ionic-native/camera@^5.26.0":
   version "5.26.0"
-  resolved "https://nexus.bry.com.br/repository/bry-npm-group/@ionic-native/core/-/core-5.26.0.tgz#ba1fc73c4fcc4419e08dc6ed06df48eabad0f56f"
+  resolved "https://registry.yarnpkg.com/@ionic-native/camera/-/camera-5.26.0.tgz#af174247751f020e47f93c41ed862dd6b0f8c40d"
+  integrity sha512-x1ZhuH/PxXBXk0No+bk+Ac8XKJaPWFhQ+BaYeNoEFQKZVbHJUpc5ghapEl8sLp5okUAA1EN0vWIPOkll+XB3eA==
+  dependencies:
+    "@types/cordova" latest
+
+"@ionic-native/core@^5.26.0":
+  version "5.26.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/core/-/core-5.26.0.tgz#ba1fc73c4fcc4419e08dc6ed06df48eabad0f56f"
   integrity sha512-o+JtcoHD32aRxowL+1xEnEwH18ma45KyNtdCxgTCSCH5RgxVQrWWIyhKeOamUtXlIpfOV559VOmegr2Y9e5KYQ==
   dependencies:
     "@types/cordova" latest
@@ -2534,6 +2541,11 @@ copy-webpack-plugin@5.1.1:
     schema-utils "^1.0.0"
     serialize-javascript "^2.1.2"
     webpack-log "^2.0.0"
+
+cordova-plugin-camera@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-camera/-/cordova-plugin-camera-4.1.0.tgz#6474a3e080c4662aa00fd7425705d301c693ddc0"
+  integrity sha512-fCLhWjWYn49q3X5xaypAPgTz6MAWSKFFQvD2Gpi5SuVlrRPRphtX2jIqR2zCBuDTBR082QVnlc+yUDXt65Mjgw==
 
 cordova-plugin-datepicker@^0.9.3:
   version "0.9.3"
@@ -8110,9 +8122,9 @@ websocket-driver@>=0.5.1:
     websocket-extensions ">=0.1.1"
 
 websocket-extensions@>=0.1.1:
-  version "0.1.3"
-  resolved "https://nexus.bry.com.br/repository/bry-npm-group/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
-  integrity sha512-nqHUnMXmBzT0w570r2JpJxfiSD1IzoI+HGVdd3aZ0yNi3ngvQ4jv1dtHt5VGxfI2yj5yqImPhOK4vmIh2xMbGg==
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.4.tgz#7f8473bc839dfd87608adb95d7eb075211578a42"
+  integrity sha512-OqedPIGOfsDlo31UNwYbCFMSaO9m9G/0faIHj5/dZFDMFqPTcx6UwqyOy3COEaEOg/9VsGIpdqn62W5KhoKSpg==
 
 when@~3.6.x:
   version "3.6.4"
