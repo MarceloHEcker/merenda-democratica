@@ -25,7 +25,6 @@ export class AvaliarCompraPage implements OnInit {
   usuario: Usuario;
 
   constructor(
-    private storage: Storage,
     private usuarioSvc: UsuariosServiceProvider,
     private compraSvc: ComprasServiceProvider,
     private comentarioSvc: ComentariosServiceProvider,
@@ -113,8 +112,8 @@ export class AvaliarCompraPage implements OnInit {
           this.run();
           this.mensagemNovaCompra();
 
-        }, async (error) => {
-          this.mensagemErroAvaliacao("Erro ao aprovar compra. Tente novamente");
+        }, async ( error ) => {
+          this.mensagemErroAvaliacao( "Erro ao aprovar compra. Tente novamente" );
         } );
 
         break;
@@ -140,8 +139,8 @@ export class AvaliarCompraPage implements OnInit {
           this.run();
           this.mensagemNovaCompra();
 
-        }, async (error) => {
-          this.mensagemErroAvaliacao("Erro ao rejeitar compra. Tente novamente");
+        }, async ( error ) => {
+          this.mensagemErroAvaliacao( "Erro ao rejeitar compra. Tente novamente" );
         } );
 
 
@@ -165,7 +164,7 @@ export class AvaliarCompraPage implements OnInit {
     await toast.present();
   }
 
-  async mensagemErroAvaliacao(message) {
+  async mensagemErroAvaliacao( message ) {
     const toast = await this.toastController.create( {
       color: 'danger',
       duration: 2000,

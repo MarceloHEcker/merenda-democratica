@@ -35,7 +35,7 @@
         <ion-item>
           <ion-icon name="pricetags-outline" slot="start"></ion-icon>
           <ion-label>
-            <h2>{{ compra.valor_total }}</h2>
+            <h2>{{ compra.valor_total | currency:'BRL':true }}</h2>
             <p>Valor Total</p>
           </ion-label>
         </ion-item>
@@ -49,16 +49,16 @@
         <ion-item>
           <ion-icon name="pricetag-outline" slot="start"></ion-icon>
           <ion-label>
-            <h2>{{ compra.valor_unitario }}</h2>
+            <h2>{{ compra.valor_unitario | currency:'BRL':true }}</h2>
             <p>Valor Unitário</p>
           </ion-label>
         </ion-item>
       </ion-list>
 
       <div class="buttons-container">
-        <ion-button color="success" shape="round">Aprovar</ion-button>
-        <ion-button color="danger" shape="round">Rejeitar</ion-button>
-        <ion-button color="secondary" shape="round">Pular</ion-button>
+        <ion-button color="success" shape="round" (click)="avaliarCompra('APROVAR')">Aprovar</ion-button>
+        <ion-button color="danger" shape="round" (click)="avaliarCompra('REJEITAR')">Rejeitar</ion-button>
+        <ion-button color="secondary" shape="round" (click)="avaliarCompra('PULAR')">Pular</ion-button>
       </div>
     </ion-card-content>
   </ion-card>

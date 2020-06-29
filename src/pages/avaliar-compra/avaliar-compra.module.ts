@@ -10,6 +10,7 @@ import { AvaliarCompraPage } from './avaliar-compra.page';
 import { ComprasServiceProvider } from 'src/providers/compras-service/compras-service';
 import { ComentariosServiceProvider } from 'src/providers/comentarios-service/comentarios-service';
 import { PrevisoesServiceProvider } from 'src/providers/previsoes-service/previsoes-service';
+import { AvaliacoesServiceProvider } from 'src/providers/avaliacoes-service/avaliacoes-service';
 
 @NgModule( {
   imports: [
@@ -20,6 +21,7 @@ import { PrevisoesServiceProvider } from 'src/providers/previsoes-service/previs
   ],
   declarations: [ AvaliarCompraPage ],
   providers: [
+    AvaliacoesServiceProvider,
     ComprasServiceProvider,
     ComentariosServiceProvider,
     PrevisoesServiceProvider,
